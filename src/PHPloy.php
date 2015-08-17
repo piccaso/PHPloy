@@ -683,10 +683,8 @@ class PHPloy
             $command = '-c core.quotepath=false ls-files -o';
         } elseif (empty($remoteRevision)) {
             $command = '-c core.quotepath=false ls-files';
-        } elseif ($localRevision === 'HEAD') {
-            $command = '-c core.quotepath=false diff --name-status '.$remoteRevision.'...'.$localRevision;
         } else {
-            $command = '-c core.quotepath=false diff --name-status '.$remoteRevision.'... '.$localRevision;
+            $command = '-c core.quotepath=false diff --name-status '.$remoteRevision.' '.$localRevision;
         }
 
         $output = $this->gitCommand($command);
